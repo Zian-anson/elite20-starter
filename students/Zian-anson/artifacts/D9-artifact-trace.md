@@ -35,6 +35,14 @@
 
 ---
 
+## 全链路调度验证（截图证据）
+
+![D9 Chain Verification](D9-chain-verification.png)
+
+**验证方式:** 方案B — 验证调度链路正确性（已正确拆解 maker → video-reviewer → optimizer 串行依赖）
+
+---
+
 ## K-S-T-A-R Trace
 
 **K — Knowledge:**
