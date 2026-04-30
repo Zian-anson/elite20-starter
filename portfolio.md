@@ -1,49 +1,39 @@
-# Elite20 Starter Challenge
+# Portfolio 条目 — Zian Anson
 
-## 1. 学习目标
+## 挑战信息
+- **挑战编号**：Week 1-2 Onboarding（先修课）
+- **达到 Level**：通过（基础能力验证）
+- **Token 消耗**：~$0.5（MiniMax-M2.7，免费额度内）
+- **日期**：2026-04-30
 
-本次挑战的学习目标：
-- 理解 Elite20 挑战体系的核心规范
-- 掌握项目结构设计方法
-- 学会记录 AI 对话日志和实验日志
-- 理解"拿来主义"的重要性
+---
 
-## 2. 过程反思
+## 核心产出
 
-### 遇到的问题
-1. 初始时对 Elite20 的规范要求不太熟悉
-2. 不知道如何组织项目结构
-3. 对"证据账本"的概念理解不够清晰
+1. **多 Agent AI 视频生产工作流**
+   - Repo: https://github.com/Zian-anson/elite20-starter
+   - 9 个 Hermes Profile 协作架构已验证
+   - orchestrator → writer → reviewer 链路完整跑通
 
-### 解决方法
-1. 仔细阅读学习指南，理解核心要求
-2. 参考示例项目结构进行设计
-3. 按照模板逐步完善各项文档
+2. **AI 科普短视频文案**
+   - Topic: AI写代码改变程序员未来
+   - Platform: 抖音（30秒）
+   - Status: v1 版本已审核通过
 
-### 学到的知识
-- Elite20 的"一句话规则"
-- 审核流程的三道门机制
-- 证据账本的组成部分
-- 提交包的规范结构
+---
 
-## 3. 成果展示
+## 关键反思
 
-### 核心产出物
-1. **项目结构**：完整的 Elite20 starter 项目模板
-2. **源代码**：包含三个功能函数的主程序
-3. **文档**：README.md、REUSE.md、实验日志、Portfolio 条目
-4. **AI 日志**：完整的对话记录
+**最大的收获：** 理解了"工具只是工具"——不要在选型阶段花太多时间，先让系统跑起来。Hermes Profiles 的多 Agent 协作机制比想象中稳定。
 
-### 可复现性说明
-运行方式：
-```bash
-cd src
-python main.py
-```
+**最大的坑：** macOS 的 git credential helper 和 GitHub API 交互时存在安全层拦截，改用 REST API 上传解决了问题。
 
-预期输出：
-```
-Hello, Elite20 Learner! Welcome to Elite20 Challenge System.
-Sum: 30
-Processed: [1, 4, 9, 16, 25]
-```
+**下一步：** 接通 Hailuo/Kling 实际生成视频，完成 maker → video-reviewer → optimizer 全链路。
+
+---
+
+## 技术栈
+- Hermes v0.11.0
+- MiniMax-M2.7
+- GitHub API (REST)
+- Mac Mini M4 16GB
