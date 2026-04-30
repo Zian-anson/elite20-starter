@@ -1,8 +1,8 @@
-# Zian Anson — Elite20
+# Niu Baokang — Elite20
 
 ## 个人信息
 
-- **姓名：** Zian Anson
+- **姓名：** Niu Baokang
 - **方向：** AI 视频创业 | 多智能体工作流
 - **GitHub：** [Zian-anson](https://github.com/Zian-anson)
 - **个人主页：** [GitHub Pages](https://zian-anson.github.io/)
