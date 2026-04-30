@@ -36,8 +36,8 @@
 **实验目标：** 验证 maker → video-reviewer → optimizer 串行链路
 
 ### 参数设置
-- 视频生成服务：Hailuo（免费主力）/ Kling（备用）
-- 当前可用额度：Hailuo ~100 credits/天，Kling 66 credits/天
+- 视频生成服务：暂无
+- 当前可用额度：暂无
 - API 状态：额度不足，未完成接入
 
 ### 执行步骤
