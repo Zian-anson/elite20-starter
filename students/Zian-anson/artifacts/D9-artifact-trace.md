@@ -2,6 +2,8 @@
 
 **Date:** 2026-04-29
 
+**重要说明：** 本次提交**未实际生成视频**。由于缺乏 Hailuo/Kling API 额度，视频生成环节（maker）仅完成了调度链路的正确性验证，并未实际调用外部视频生成服务。完整视频生成需待 API 额度充足后执行。
+
 ---
 
 ## Artifact: AI科普短视频文案 v1
@@ -41,6 +43,14 @@
 
 **验证方式:** 方案B — 验证调度链路正确性（已正确拆解 maker → video-reviewer → optimizer 串行依赖）
 
+**实际完成情况：**
+- ✅ orchestrator 正确接收并解析任务
+- ✅ analyst + writer 并行调度正常
+- ✅ reviewer 审核逻辑正确
+- ⚠️ maker 未实际调用（缺乏 Hailuo/Kling API 额度）
+- ⚠️ video-reviewer / optimizer 未执行（依赖 maker 输出）
+- 🔜 下一步：待 API 额度充足后完成视频实际生成
+
 ---
 
 ## K-S-T-A-R Trace
@@ -50,15 +60,17 @@
 - 文案结构：钩子(3秒)→痛点引入→解决方案→CTA
 - 平台差异化要求（抖音vs其他平台）
 - 当前环境：Mac Mini M4，Hermes v0.11.0
+- 已知约束：Hailuo（免费主力，日更~100 credits）、Kling（备用，66 credits/天）
 
 **S — Situation:**
 - Week 2，第一次完整跑通 orchestrator 调度链路
 - 任务是：用多Agent系统生成一条AI科普短视频的文案
-- 需要证明链路可闭环：orchestrator → analyst+writer → reviewer → maker
+- 约束：缺乏视频生成 API 额度，只能验证链路，不能实际出视频
 
 **T — Task:**
-- 生成 2 个版本的高质量文案
-- Acceptance criterion：平台适配、逻辑完整、有吸引力、审核通过
+- 生成 2 个版本的高质量文案（✅ 已完成）
+- 验证 maker → video-reviewer → optimizer 调度链路的正确性（✅ 已验证）
+- 实际生成视频文件（❌ 因 API 额度不足未执行）
 
 **A — Action:**
 1. `orchestrator chat -q "主题：AI写代码改变程序员未来，30秒，抖音"`
@@ -66,9 +78,20 @@
 3. writer 读取需求，生成 v1 和 v2 两个版本
 4. reviewer 审核，v1 通过，v2 建议优化结尾
 5. orchestrator 汇总 v1 + v2 输出给用户
+6. orchestrator 展示 maker → video-reviewer → optimizer 串行链路的调用参数
 
 **R — Result:**
-- ✅ 链路闭环成功
+- ✅ 文案生成链路完整（orchestrator → writer → reviewer）
 - ✅ v1 文案审核通过
-- ⚠️ v2 结尾需优化（但用户已选 v1，未继续迭代）
-- 🔑 insight：并行调度节省 ~40% 时间；审核环节是质量保障的关键
+- ✅ 调度链路的参数拆解正确（orchestrator 正确识别 maker 的输入输出接口）
+- ⚠️ 视频未实际生成（Hailuo/Kling API 额度不足）
+- 🔑 insight：并行调度节省约40%时间；审核环节是质量保障的关键；视频生成是下一步必须补全的环节
+
+---
+
+## 下一步计划
+
+1. 接入 Hailuo API（主力免费额度）或 Kling API（备用）
+2. 完成 maker → video-reviewer → optimizer 全流程
+3. FFmpeg 后处理（拼接/字幕/调色）
+4. 实际分发到抖音/快手/小红书等平台
