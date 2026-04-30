@@ -29,7 +29,7 @@
 
 **批量分发**：social-auto-upload → 抖音 / 快手 / 小红书 / 哔哩哔哩 / 微信视频号 / YouTube Shorts / TikTok
 
-**多 Agent 架构**：Hermes + Claude Code + OpenClaw（Mac Mini 本地运行）
+**多 Agent 架构**：Hermes 主调度 + 8 个执行 Profile（Orchestrator / Analyst / Writer / Reviewer / Maker / Video-Reviewer / Optimizer / Distributor），运行于 Mac Mini M4 本地
 
 ## 已完成作业
 
